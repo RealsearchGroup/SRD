@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="'Document Details for ' + ${document.documentName}" />
+</head>
+<body>
+<p th:text="'ID:  ' + ${document.documentId}" />
+<p th:text="'Name:  ' + ${document.documentName}" />
+<p th:text="'Uploaded By:  ' + ${document.createUser}" />
+<p th:text="'Processed Date:  ' + ${#dates.format(document.documentProcessDate, 'dd-MMM-yyyy')}" />
+<p th:text="'Lines:  ' + ${document.lineCount}" />
+
+<hr />
+<a href="/">Home</a> | <a href="/upload">Upload New File</a> | <a th:href="'/arff/' + ${document.documentId}">View Default Training ARFF File</a> | <a th:href="'/arff/download/' + ${document.documentId}">Download Default Training ARFF File</a> | <a th:href="'/arff/' + ${document.documentId} + '?type=test'">View Default Test ARFF File</a> | <a th:href="'/arff/download/' + ${document.documentId} + '?type=test'">Download Default Test ARFF File</a>
+</body>
+</html>
